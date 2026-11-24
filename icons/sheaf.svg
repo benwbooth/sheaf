@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f5f8"/>
+      <stop offset="1" stop-color="#c9ccd4"/>
+    </linearGradient>
+    <linearGradient id="light" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7fd4ff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#5ac8fa"/>
+      <stop offset="1" stop-color="#7fd4ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- pages fanned out above the scanner (a sheaf) -->
+  <g transform="translate(64 60)">
+    <rect x="-30" y="-46" width="52" height="66" rx="4" fill="#ffffff" stroke="#b8bcc6" stroke-width="2" transform="rotate(-12)"/>
+    <rect x="-24" y="-48" width="52" height="66" rx="4" fill="#ffffff" stroke="#b8bcc6" stroke-width="2" transform="rotate(8)"/>
+    <rect x="-26" y="-50" width="52" height="66" rx="4" fill="#ffffff" stroke="#9ea3af" stroke-width="2"/>
+    <g fill="#9ea3af">
+      <rect x="-17" y="-38" width="34" height="4" rx="2"/>
+      <rect x="-17" y="-28" width="28" height="4" rx="2"/>
+      <rect x="-17" y="-18" width="32" height="4" rx="2"/>
+      <rect x="-17" y="-8" width="22" height="4" rx="2"/>
+    </g>
+  </g>
+  <!-- the scanner -->
+  <rect x="10" y="74" width="108" height="40" rx="10" fill="url(#body)" stroke="#8e939e" stroke-width="2"/>
+  <rect x="18" y="82" width="92" height="10" rx="5" fill="#2c2f36"/>
+  <rect x="20" y="85" width="88" height="4" rx="2" fill="url(#light)"/>
+  <circle cx="100" cy="104" r="3.5" fill="#34c759"/>
+</svg>

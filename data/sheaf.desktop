@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Sheaf
+GenericName=Scanner
+Comment=Scan documents and photos to PDF or pictures
+Exec=sheaf
+Icon=sheaf
+Terminal=false
+Categories=Graphics;Scanning;Office;Qt;
+Keywords=scan;scanner;document;photo;pdf;ocr;sane;image capture;
+StartupWMClass=sheaf

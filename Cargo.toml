@@ -1,0 +1,37 @@
+[package]
+name = "sheaf"
+version = "0.1.0"
+edition = "2021"
+description = "A document and photo scanner for Linux, like macOS Image Capture (Rust + Qt Quick)"
+license = "MIT"
+repository = "https://github.com/benwbooth/sheaf"
+
+[[bin]]
+name = "sheaf"
+path = "src/main.rs"
+
+[workspace]
+members = [".", "core"]
+resolver = "2"
+
+[dependencies]
+sheaf-core = { path = "core" }
+anyhow = "1"
+cxx = "1.0"
+cxx-qt = "0.10"
+cxx-qt-lib = { version = "0.10", features = ["qt_full"] }
+serde_json = "1"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+parking_lot = "0.12"
+zbus = { version = "5", default-features = false, features = ["blocking-api", "async-io"] }
+
+[build-dependencies]
+cxx-qt-build = "0.10"
+
+# One optimized, incremental profile for everything (as grove/Tessera).
+[profile.dev]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+incremental = true
