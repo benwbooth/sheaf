@@ -26,34 +26,9 @@ ComboBox {
         color: Theme.fgSecondary
         rotation: 0
     }
-    delegate: ItemDelegate {
-        id: d
-        required property int index
-        required property var modelData
-        width: c.popup.width - 8
-        height: Theme.menuRow
-        highlighted: c.highlightedIndex === index
-        background: Rectangle { radius: 6; color: d.highlighted ? Theme.accent : "transparent" }
-        contentItem: GLabel {
-            text: typeof d.modelData === "string" ? d.modelData : (d.modelData[c.textRole] || "")
-            color: d.highlighted ? Theme.accentText : Theme.fg
-            leftPadding: 6
-        }
-    }
-    popup: Popup {
-        y: c.height + 2
-        width: Math.max(c.width, 160)
-        implicitHeight: Math.min(contentItem.implicitHeight + 8, 400)
-        padding: 4
-        topPadding: 4.001
-        leftPadding: 4.001
-        contentItem: ListView {
-            clip: true
-            implicitHeight: contentHeight
-            model: c.popup.visible ? c.delegateModel : null
-            currentIndex: c.highlightedIndex
-        }
-        background: GlassPanel { tint: Theme.glassMenu }
-    }
+    // The list: the shared macOS pop-up list (hearth/shared/app-menus),
+    // the current choice over the button with its text lined up.
+    delegate: MacComboItem { combo: c }
+    popup: MacComboPopup { combo: c; dark: Theme.dark; accent: Theme.accent; textX: 12 }
     GTip { visible: c.hovered && c.tip !== "" && !c.popup.visible; text: c.tip }
 }
