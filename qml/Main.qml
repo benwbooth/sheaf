@@ -456,7 +456,7 @@ ApplicationWindow {
                 }
                 GButton {
                     id: menuButton
-                    iconName: "open-menu|application-menu|format-justify-fill"
+                    iconName: "overflow-menu-symbolic|view-more-symbolic|application-menu"
                     tip: "All menus (also in the menu bar at the top of the screen)"
                     onClicked: appMenu.openBelow(menuButton)
                 }
