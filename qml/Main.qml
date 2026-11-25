@@ -9,6 +9,9 @@ import Sheaf
 // right, the scanned pages along the bottom.
 ApplicationWindow {
     id: win
+    // The toolbar is the title bar (the shared window chrome from
+    // hearth/shared/app-menus, as in all of Ben's apps).
+    flags: Qt.Window | Qt.FramelessWindowHint
     visible: true
     width: 1180
     height: 820
@@ -385,6 +388,17 @@ ApplicationWindow {
             height: Theme.toolbarHeight
             color: Theme.toolbar
             Rectangle { anchors.bottom: parent.bottom; width: parent.width; height: 1; color: Theme.separator }
+            // Drag to move, double-click to maximize, right-click for the
+            // window menu; minimize, maximize and close at the right end.
+            ChromeTitleArea { anchors.fill: parent; window: win; menuDark: Theme.dark; menuAccent: Theme.accent }
+            ChromeButtons {
+                id: winButtons
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                window: win
+                fg: Theme.fg
+                bg: Theme.toolbar
+            }
 
             Row {
                 anchors.left: parent.left
@@ -416,7 +430,7 @@ ApplicationWindow {
                 onPicked: i => { if (i === 1 && win.current < 0 && pages.count) win.selectOnly(0); win.view = (i === 1 && pages.count === 0) ? 0 : i }
             }
             Row {
-                anchors.right: parent.right
+                anchors.right: winButtons.left
                 anchors.rightMargin: 10
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: 8
@@ -655,4 +669,7 @@ ApplicationWindow {
             }
         }
     }
+
+    // Resizing from the edges (no system frame).
+    ChromeResizeEdges { anchors.fill: parent; z: 10000; window: win }
 }
